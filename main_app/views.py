@@ -10,3 +10,9 @@ class Home(TemplateView):
 
 class About(TemplateView):
     template_name = 'about.html'
+
+class ArtistList(TemplateView):
+    template_name = 'cars_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)

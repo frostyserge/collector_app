@@ -9,30 +9,30 @@
     <div class="container">
         <!--Section: Content-->
         <section class="text-center">
-            <h4 class="mb-5"><strong>Gallery</strong></h4>
-            {% for car in cars %}
-            <div class="row">
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{car.img}}" class="img-fluid" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{car.name}}</h5>
-                            <p class="card-text">
-                                {{car.description}}
-                            </p>
-                            <a href="#!" class="btn btn-primary">Read</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </section>
-        <!--Section: Content-->
+          <h4 class="mb-5"><strong>Gallery</strong></h4>
+          {% for car in cars %}
+          <div class="container d-flex align-content-around flex-wrap">
+              <div class="col-lg-4 col-md-12 mb-4 row">
+                  <div class="card">
+                      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{{car.img}}" class="img-fluid" />
+                          <a href="#!">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                      </div>
+                      <div class="card-body">
+                          <h5 class="card-title">{{car.name}}</h5>
+                          <p class="card-text">
+                              {{car.description}}
+                          </p>
+                          <a href="#!" class="btn btn-primary">Read</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </section>
+      <!--Section: Content-->
 
         <!-- Pagination -->
         <nav class="my-4" aria-label="...">

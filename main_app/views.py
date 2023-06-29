@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views import View
-from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
+from django.views import View
 from .models import Car
 
 # Create your views here.
@@ -24,3 +24,9 @@ class CarsList(TemplateView):
         else:
             context['cars'] = Car.objects.all()
         return context
+    
+class CarCreate(CreateView):
+    model = Car
+    fields = ['name', 'price', 'img', 'description']
+    template_name = 'car_create.html'
+    success_url = '/cars/'

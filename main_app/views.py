@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 from django.views import View
@@ -49,3 +49,8 @@ class CarUpdate(UpdateView):
     
     def get_success_url(self):
         return reverse('car_detail', kwargs={'pk': self.object.pk})
+    
+class CarDelete(DeleteView):
+    model = Car
+    template_name = 'car_delete_confirmation.html'
+    success_url = '/cars/'

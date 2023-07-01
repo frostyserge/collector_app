@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.urls import reverse
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 from django.views import View
@@ -32,6 +33,19 @@ class CarCreate(CreateView):
     template_name = 'car_create.html'
     success_url = '/cars/'
 
+    def get_success_url(self):
+        return reverse('car_detail', kwargs={'pk': self.object.pk})
+
 class CarDetail(DetailView):
     model = Car
     template_name = 'car_detail.html'
+
+
+class CarUpdate(UpdateView):
+    model = Car
+    fields = ['name', 'price', 'img', 'description']
+    template_name = 'car_update.html'
+    success_url = '/cars/'
+    
+    def get_success_url(self):
+        return reverse('car_detail', kwargs={'pk': self.object.pk})

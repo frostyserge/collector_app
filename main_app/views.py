@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
+from django.views.generic import DetailView
 from django.views import View
 from .models import Car
 
@@ -30,3 +31,7 @@ class CarCreate(CreateView):
     fields = ['name', 'price', 'img', 'description']
     template_name = 'car_create.html'
     success_url = '/cars/'
+
+class CarDetail(DetailView):
+    model = Car
+    template_name = 'car_detail.html'
